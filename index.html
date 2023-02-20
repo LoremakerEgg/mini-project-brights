@@ -9,19 +9,25 @@
   <body>
     <header>
       <h1>Welcome</h1>
-      <div id="navicon">
-        <img id="nav-menu" src="/images/list.svg" alt="An icon for a menu" />
-        <div class="navbar">
-          <ul>
-            <li><a href="team.html">Team</a></li>
-            <li><a href="demo.html">Demonstration</a></li>
-          </ul>
-        </div>
-      </div>
     </header>
-    <div>
+    <nav class="carousel-nav">
+      <button class="prev-btn">Prev</button>
+      <div class="img-containerTop">  
+            <img
+              id="carousel-img"
+              src="https://images.unsplash.com/photo-1535378917042-10a22c95931a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHJvYm90JTIwaGFuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+              alt=""
+            /><a href="team.html">Team</a>  
+    </div>
+      <button class="next-btn">Next</button>
+    </nav>
       <main>
-        <h3>TEXT</h3>
+        <div class="image-containerleft">
+          <div class="text-containerTop">
+        <img id="left"
+        src="/images/five-fingers-hand.jpg"
+        alt="A picture of a hand holding up five fingers"
+      /><h3>TEXT</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quo
           est sapiente veniam maxime animi, saepe pariatur in aspernatur nemo
@@ -35,7 +41,7 @@
           ipsum vitae a perspiciatis nisi deleniti aliquid corrupti quam
           accusantium molestias maiores debitis, cupiditate assumenda nemo illo
           accusamus iusto expedita? Dolore facere ex numquam? Reprehenderit,
-          aspernatur tenetur. Voluptates ducimus quis libero, asperiores rerum
+          aspernatur tenetur.<br><br> Voluptates ducimus quis libero, asperiores rerum
           excepturi placeat, distinctio unde maiores repellendus nulla dolorum
           numquam provident. Nostrum, repudiandae pariatur culpa accusamus velit
           placeat ullam ducimus nisi, aperiam neque sit reiciendis, vel dolorem.
@@ -46,7 +52,7 @@
           hic velit modi minima sit nam doloremque consequuntur aspernatur?
           Repellat magni ipsa impedit sapiente repellendus exercitationem
           deserunt mollitia a temporibus? Maiores delectus quaerat veniam ullam.
-        </p>
+        </p></div></div>
         <div class="image-container">
           <div class="text-container">
             <h4>TEXT 2</h4>
@@ -56,7 +62,7 @@
               dolores, deleniti quas, ad quasi cumque qui veniam aliquid iure
               voluptates enim voluptatem optio minima? Sapiente nisi
               reprehenderit totam odio facere fuga sit ut, tempore recusandae
-              culpa illo deserunt in. Officiis necessitatibus quos, magni illum
+              culpa illo deserunt in.<br><br> Officiis necessitatibus quos, magni illum
               cupiditate earum molestiae eum tenetur ab! Laboriosam quisquam
               laudantium enim excepturi aspernatur? Saepe aperiam aliquid illum,
               esse veritatis sequi explicabo autem, id accusantium cupiditate
@@ -65,7 +71,7 @@
               dolores sed ipsum, incidunt eius maxime.
             </p>
           </div>
-          <img
+          <img id="right"
             src="/images/five-fingers-hand.jpg"
             alt="A picture of a hand holding up five fingers"
           />
@@ -73,7 +79,7 @@
       </main>
     </div>
     <footer>
-      <a href="http://" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="#">Copyright ©</a><a href="http://" target="_blank" rel="noopener noreferrer">GitHub</a>
     </footer>
     <script type="module" src="/index.js"></script>
   </body>

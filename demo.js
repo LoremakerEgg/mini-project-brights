@@ -25,7 +25,7 @@ async function getPokemon(id) {
   firstEntry.innerHTML = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png"/><p>${pokemonName}</p>`;
   //shows the images and name of the pokemon, with the first letter being capitalized in CSS
   randomPokemonType.innerText = `THIS POKEMON'S TYPE IS: ${pokemonType.toUpperCase()}!`; //TODO: look into adding 2 types if the pokemon has 2 types
-  randomPokemonAbilities.innerText = `THIS POKEMON STARTS WITH ${pokemonAbilityNum} PASSIVES AND THEY ARE: ${pokemonAbility
+  randomPokemonAbilities.innerText = `THIS POKEMON STARTS WITH ${pokemonAbilityNum} PASSIVE ABILITIES AND THEY ARE: ${pokemonAbility
     .join(", ")
     .toUpperCase()}!`;
 } //add more features by researching the API to find otu what more you can include (HP, carried items, etc, etc)

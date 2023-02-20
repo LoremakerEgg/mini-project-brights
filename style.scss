@@ -1,6 +1,84 @@
-.test {
-  color: salmon;
-  &:hover {
-    color: olive;
+body {
+  margin: 0;
+}
+header {
+  background-color: salmon;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  justify-content: space-between;
+  h1 {
+    margin: 0;
+  }
+  #navicon {
+    padding-right: 15px;
+  }
+  img {
+    height: 50px;
+  }
+  &:hover ~ .navbar {
+    display: block;
+  }
+}
+footer {
+  background-color: salmon;
+  height: 40px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  a {
+    padding-top: 10px;
+  }
+}
+main {
+  display: flex;
+  flex-direction: column;
+  p {
+    font-size: 18px;
+  }
+  img {
+    height: 400px;
+    min-width: 400px;
+    float: right;
+  }
+  .image-container {
+    display: flex;
+    padding-right: 50px;
+  }
+}
+.navbar {
+  position: absolute;
+  right: 0;
+  background-color: salmon;
+  width: 0px;
+  transition: width 1s ease-in-out;
+  ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  li {
+    list-style: none;
+    padding: 10px;
+    display: flex;
+    border-bottom: 2px solid black;
+  }
+}
+#nav-menu:hover ~ .navbar {
+  display: block;
+  width: 200px;
+}
+.navbar:hover {
+  display: block;
+  width: 200px;
+}
+@media only screen and (max-width: 800px) {
+  footer {
+    position: sticky;
   }
 }

@@ -1,8 +1,18 @@
+$mainColor: rgb(228, 238, 82);
+$mainGradient: linear-gradient(
+  128deg,
+  rgba(228, 238, 82, 1) 3%,
+  rgba(209, 82, 173, 1) 27%,
+  rgba(111, 24, 129, 1) 76%,
+  rgba(231, 126, 65, 1) 90%,
+  rgba(228, 238, 82, 1) 97%
+);
 body {
   margin: 0;
 }
 header {
-  background-color: salmon;
+  background: $mainColor;
+  background: $mainGradient;
   height: 80px;
   display: flex;
   align-items: center;
@@ -22,7 +32,7 @@ header {
   }
 }
 footer {
-  background-color: salmon;
+  background-color: black;
   height: 40px;
   width: 100%;
   position: absolute;

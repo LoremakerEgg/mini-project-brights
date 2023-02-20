@@ -1,0 +1,70 @@
+body {
+  background-color: aliceblue;
+}
+.demo-main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Press Start 2P", cursive;
+  .demo-container {
+    max-width: 100vw;
+    max-height: 100vh;
+    padding-top: 5vh;
+    padding-left: 5vw;
+
+    p::first-letter {
+      text-transform: capitalize;
+    }
+    button {
+      font-family: "Press Start 2P", cursive;
+      height: 50px;
+      background-color: crimson;
+      border-radius: 5px;
+      margin-left: 50px;
+      margin-top: 10px;
+      border: 2px solid black;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        cursor: pointer;
+        background-color: palevioletred;
+      }
+    }
+    p {
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      margin-top: -60px;
+    }
+    .pokemon {
+      width: 400px;
+      height: 400px;
+    }
+    img {
+      width: 400px;
+      height: 400px;
+    }
+    #mon {
+      border: 2px solid black;
+      width: 400px;
+      height: 400px;
+    }
+    h1 {
+      border: 2px black solid;
+      max-width: 400px;
+      font-size: 20px;
+    }
+  }
+  .code-container {
+    #code-img {
+      width: 100vw;
+      height: 100vh;
+      margin-top: 20px;
+    }
+    transition: width 1s ease-in-out;
+  }
+}
+.hidden {
+  width: 0;
+  overflow: hidden;
+}

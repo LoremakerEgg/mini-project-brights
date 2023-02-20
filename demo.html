@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demonstration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>BRIGHTS</h1>
+      <div id="navicon">
+        <img id="nav-menu" src="/images/list.svg" alt="An icon for a menu" />
+        <div class="navbar">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="team.html">Team</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <div class="demo-main">
+      <div class="demo-container">
+        <div class="pokemon" id="mon"></div>
+        <button id="pokemonBtn">Random Original Pokemon</button>
+        <h1 id="type"></h1>
+        <h1 id="abilities"></h1>
+      </div>
+
+      <div class="code-container hidden">
+        <img
+          id="code-img"
+          src="/images/code-placeholder.jpg"
+          alt="An image containing code"
+        />
+      </div>
+    </div>
+
+    <footer>
+      <a href="https://github.com/LoremakerEgg/mini-project-brights">GitHub</a>
+      <div class="code-btn"><button id="show-code">Show code!</button></div>
+    </footer>
+    <script type="module" src="demo.js"></script>
+  </body>
+</html>

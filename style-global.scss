@@ -64,8 +64,8 @@ footer {
 main {
   display: flex;
   flex-direction: column;
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 200px;
+  margin-right: 200px;
 
   h3 {
     font-size: 24px;
@@ -85,21 +85,27 @@ main {
   }
   #left {
     height: 400px;
+    width: fit-content;
     max-width: fit-content;
     float: left;
     border: 2px solid $mainColor;
-    margin-left: 20px;
-    margin-right: 5px;
+    margin: 10px;
   }
   #right {
     height: 400px;
     max-width: fit-content;
-    margin-bottom: 20px;
+    margin: 10px;
     float: right;
     border: 2px solid $mainColor;
   }
   .image-container {
     display: flex;
+    flex-direction: row;
+    padding-right: 50px;
+  }
+  .text-container {
+    display: flex;
+    flex-direction: column;
     padding-right: 50px;
   }
 }
@@ -119,16 +125,14 @@ main {
   #slideImg {
     height: 170px;
     width: 100%;
-  }
-  .mySlides fade {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    width: 100%;
+    border-radius: 5px;
   }
   .fade {
     animation-name: fade;
     animation-duration: 1.5s;
+  }
+  .slideshow-wrapper {
+    width: 800px;
   }
 }
 .tab {
@@ -138,10 +142,21 @@ main {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  position: relative;
+  top: -170px;
+
   img {
     position: relative;
     top: 6px;
     right: -8px;
+    transition: all 0.2s ease-in-out;
+  }
+  .btnScrollTo1:hover img {
+    cursor: pointer;
+    transform: rotate(90deg);
+  }
+  .btnScrollTo2:hover img {
+    cursor: pointer;
     transform: rotate(90deg);
   }
 }
@@ -160,13 +175,17 @@ main {
 .dot:hover {
   background-color: #717171;
 }
-
+.return-wrapper {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
 .return {
   width: 24px;
   height: 24px;
   box-sizing: border-box;
-  position: relative;
-  left: 50px;
   transform: rotate(-45deg);
 
   &::before {
@@ -206,11 +225,136 @@ main {
   }
 }
 
-@media only screen and (max-width: 600px) {
-  main {
-    margin: 5px;
+//------------------------------------------------------
+$size: 50px;
+$items: 3;
+$transition: 0.5s;
+$bounce: cubic-bezier(0.3, 1.4, 0.5, 0.9);
+$color-inner: gold;
+$color-outer: tomato;
+$background: mix($color-inner, $color-outer);
+$black: shade($color-outer, 80%);
+$start-scale: 0.5;
+$start-rot: 190deg;
+
+nav {
+  display: block;
+  position: fixed;
+  width: $size * $items * 2;
+  height: $size * $items * 2;
+  user-select: none;
+  transform: translate3d($size * 0.5, -$size * 0.5, 0);
+  transition: transform $transition $bounce;
+
+  &.open {
+    transform: translate3d(0, 0, 0);
+  }
+
+  &.infoLinks {
+    top: 150px;
+    right: 0px;
   }
 }
-.slideshow-container {
-  margin: 5px;
+
+.disc {
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  font: $size * 0.5 Alegreya Sans, sans-serif;
+  line-height: $size * 0.8;
+  padding-top: $size * 0.2;
+  border-radius: $size * $items;
+  transform: scale3d($start-scale, $start-scale, $start-scale)
+    rotate3d(0, 0, 1, $start-rot);
+  pointer-events: none;
+  opacity: 0;
+  cursor: pointer;
+  transition: transform $transition $bounce, opacity $transition;
+
+  div {
+    transform: rotate(180deg);
+  }
+
+  .open & {
+    pointer-events: auto;
+    opacity: 1;
+  }
+}
+
+@for $i from 1 through $items {
+  .l#{$i} {
+    $i: $i - 1;
+    $-i: $items - $i;
+    $pct: $i/$items * 100%;
+    $color: mix($color-inner, $color-outer, $pct);
+
+    top: $i * $size;
+    left: $i * $size;
+    right: $i * $size;
+    bottom: $i * $size;
+    background: $color;
+    transition-delay: $i * $transition/$items;
+
+    .open & {
+      transition-delay: $i * $transition/$items;
+      transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, $start-rot);
+      opacity: 1;
+
+      &:hover {
+        background: shade($color, 90%);
+        color: $color;
+        transition-delay: 0s;
+      }
+
+      &:active {
+        background: shade($color, 50%);
+        color: $color;
+      }
+
+      &.toggle {
+        transform: scale3d(0.9, 0.9, 0.9)
+          rotate3d(0, 0, 1, $start-rot - 180deg);
+      }
+    }
+  }
+}
+
+.toggle {
+  line-height: $size * 2;
+  padding: 0;
+  width: $size * 2;
+  background: $color-inner;
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  transition-delay: 0s;
+
+  .open & {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+
+  &:hover {
+    background: shade($color-inner, 90%);
+    text-decoration: underline;
+  }
+  &:active {
+    background: shade($color-inner, 50%);
+    color: rgba($color-inner, 0.5);
+    transform: scale(0.9);
+    transition-duration: 0s;
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  main {
+    margin: auto;
+  }
+  .tab {
+    top: auto;
+    left: 10px;
+  }
+}
+.image-container {
+  flex-direction: column;
 }

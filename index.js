@@ -55,3 +55,22 @@ const theTop = document.querySelector("header");
 returnToTop.addEventListener("click", function () {
   theTop.scrollIntoView({ behavior: "smooth" });
 });
+//----------------------------------------------------------
+//links
+const toggle = document.querySelectorAll(".toggle")[0];
+const nav = document.querySelectorAll("nav")[0];
+let toggle_open_text = "Open";
+let toggle_close_text = "Close";
+
+toggle.addEventListener(
+  "click",
+  function () {
+    nav.classList.toggle("open");
+    if (nav.classList.contains("open")) {
+      toggle.innerHTML = toggle_close_text;
+    } else {
+      toggle.innerHTML = toggle_open_text;
+    }
+  },
+  false
+);

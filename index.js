@@ -1,44 +1,57 @@
 import "./style-global.scss";
 import "./style-index.scss";
 
-const imageContainer = document.querySelector(".image-container");
-const images = document.querySelectorAll(".image-container img");
-const prevBtn = document.getElementById("prev-btn");
-const nextBtn = document.getElementById("next-btn");
+let slides = document.querySelectorAll(".mySlides");
+let dots = document.querySelectorAll(".dot");
+let slideIndex = 0;
 
-let currentIndex = 0;
+showSlides(slideIndex);
 
-function showImage(index) {
-  images.forEach((image) =>
-    image.classList.remove("active", "previous", "next")
-  );
-  images[index].classList.add("active");
-  if (index === 0) {
-    images[images.length - 1].classList.add("previous");
-    images[index + 1].classList.add("next");
-  } else if (index === images.length - 1) {
-    images[index - 1].classList.add("previous");
-    images[0].classList.add("next");
-  } else {
-    images[index - 1].classList.add("previous");
-    images[index + 1].classList.add("next");
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    slideIndex = index;
+    showSlides(slideIndex);
+  });
+});
+
+function showSlides(n) {
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+    dots[i].classList.remove("active");
   }
+  slideIndex = (n + slides.length) % slides.length;
+  slides[slideIndex].style.display = "block";
+  dots[slideIndex].classList.add("active");
 }
 
-prevBtn.addEventListener("click", () => {
-  currentIndex--;
-  if (currentIndex < 0) {
-    currentIndex = images.length - 1;
+let slideIndexAuto = 0;
+showSlidesAuto();
+
+function showSlidesAuto() {
+  if (slideIndex === 0) {
+    slideIndex = 1;
+  } else {
+    slideIndex = 0;
   }
-  showImage(currentIndex);
+  showSlides(slideIndex);
+  setTimeout(showSlidesAuto, 5000);
+}
+//-------------------------------------------------------------
+// scroll to
+const scrollBtn1 = document.querySelector(".btnScrollTo1");
+const scrollBtn2 = document.querySelector(".btnScrollTo2");
+const text1 = document.querySelector(".image-containerleft");
+const text2 = document.querySelector(".text-container");
+
+scrollBtn1.addEventListener("click", function (e) {
+  text1.scrollIntoView({ behavior: "smooth" });
+});
+scrollBtn2.addEventListener("click", function (e) {
+  text2.scrollIntoView({ behavior: "smooth" });
 });
 
-nextBtn.addEventListener("click", () => {
-  currentIndex++;
-  if (currentIndex > images.length - 1) {
-    currentIndex = 0;
-  }
-  showImage(currentIndex);
+const returnToTop = document.querySelector(".return");
+const theTop = document.querySelector("header");
+returnToTop.addEventListener("click", function () {
+  theTop.scrollIntoView({ behavior: "smooth" });
 });
-
-showImage(currentIndex);

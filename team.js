@@ -3,6 +3,8 @@ import "./style-team.scss";
 
 let slides = document.getElementsByClassName("slides");
 let dots = document.getElementsByClassName("dot");
+const navButton = document.getElementById("nav-menu");
+const navBar = document.querySelector(".navbar");
 
 function showSlides(n) {
   if (n > slides.length) {
@@ -51,4 +53,7 @@ dots[1].addEventListener("click", () => {
 });
 dots[2].addEventListener("click", () => {
   currentSlide(3);
+});
+navButton.addEventListener("click", () => {
+  navBar.classList.toggle("show");
 });

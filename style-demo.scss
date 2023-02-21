@@ -1,5 +1,6 @@
 $paddingBetween: 5vh;
 $sizing: 400px;
+$sizingS: 300px;
 $border: 2px solid black;
 body {
   background-color: aliceblue;
@@ -71,7 +72,7 @@ body {
   justify-content: center;
   padding-top: $paddingBetween;
   padding-bottom: $paddingBetween;
-  width: 400px;
+  width: $sizing;
   margin: 0 auto;
 }
 
@@ -80,7 +81,8 @@ body {
 }
 .code-overlay {
   img {
-    width: 65vw;
+    width: 50vw;
+    margin-left: 25vw;
     margin-bottom: $paddingBetween;
   }
 }
@@ -89,7 +91,29 @@ body {
   .code-overlay {
     img {
       width: 90vw;
+      margin-left: 15px;
     }
+  }
+  .demo-container {
+    .pokemon {
+      max-width: $sizingS;
+      max-height: $sizingS;
+      margin-left: 6vw;
+    }
+    img {
+      max-width: $sizingS;
+      max-height: $sizingS;
+    }
+    p {
+      font-size: 30px !important;
+    }
+    h1 {
+      max-width: $sizingS !important;
+      margin: 15px auto;
+    }
+  }
+  .demo-info {
+    width: $sizingS;
   }
 }
 

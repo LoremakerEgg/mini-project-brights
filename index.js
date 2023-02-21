@@ -36,3 +36,22 @@ function showSlidesAuto() {
   showSlides(slideIndex);
   setTimeout(showSlidesAuto, 5000);
 }
+//-------------------------------------------------------------
+// scroll to
+const scrollBtn1 = document.querySelector(".btnScrollTo1");
+const scrollBtn2 = document.querySelector(".btnScrollTo2");
+const text1 = document.querySelector(".image-containerleft");
+const text2 = document.querySelector(".text-container");
+
+scrollBtn1.addEventListener("click", function (e) {
+  text1.scrollIntoView({ behavior: "smooth" });
+});
+scrollBtn2.addEventListener("click", function (e) {
+  text2.scrollIntoView({ behavior: "smooth" });
+});
+
+const returnToTop = document.querySelector(".return");
+const theTop = document.querySelector("header");
+returnToTop.addEventListener("click", function () {
+  theTop.scrollIntoView({ behavior: "smooth" });
+});

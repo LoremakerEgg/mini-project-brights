@@ -1,6 +1,8 @@
 import "./style-global.scss";
 import "./style-index.scss";
 
+//------
+//slides
 let slides = document.querySelectorAll(".mySlides");
 let dots = document.querySelectorAll(".dot");
 let slideIndex = 0;
@@ -8,7 +10,7 @@ let slideIndex = 0;
 showSlides(slideIndex);
 
 dots.forEach((dot, index) => {
-  dot.addEventListener("click", () => {
+  dot.addEventListener("click", function () {
     slideIndex = index;
     showSlides(slideIndex);
   });
@@ -36,6 +38,10 @@ function showSlidesAuto() {
   showSlides(slideIndex);
   setTimeout(showSlidesAuto, 5000);
 }
+
+//------------------------------------------------------------
+// mobil touch screen
+
 //-------------------------------------------------------------
 // scroll to
 const scrollBtn1 = document.querySelector(".btnScrollTo1");

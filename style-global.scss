@@ -1,28 +1,4 @@
 $mainColor: rgb(228, 238, 82);
-$mainGradient: linear-gradient(
-  128deg,
-  rgba(228, 238, 82, 1) 3%,
-  rgb(110, 45, 93) 27%,
-  rgb(52, 18, 59) 76%,
-  rgb(65, 51, 43) 90%,
-  rgb(6, 6, 6) 97%
-);
-$secondaryColor: rgb(215, 158, 78);
-$secondaryGradient: linear-gradient(
-  321deg,
-  rgba(215, 158, 78, 1) 17%,
-  rgba(214, 201, 78, 1) 31%,
-  rgba(198, 215, 78, 0.15730042016806722) 73%
-);
-// $tertiaryGradiant: linear-gradient(
-//   168deg,
-//   rgba(247, 222, 49, 1) 17%,
-//   rgba(207, 164, 62, 1) 31%,
-//   rgba(198, 172, 84, 0.8295693277310925) 52%,
-//   rgb(130, 91, 151) 63%,
-//   rgba(57, 59, 41, 0.865983893557423) 75%,
-//   rgba(19, 19, 14, 0.865983893557423) 89%
-// );
 $fourthGradient: linear-gradient(
   165deg,
   rgba(191, 110, 213, 1) 15%,
@@ -52,78 +28,6 @@ header {
     padding-left: 50px;
   }
 }
-.img-containerTop {
-  width: 450px;
-  height: 150px;
-}
-footer {
-  background-color: black;
-  font-family: monospace;
-  height: 60px;
-  width: 100%;
-  position: relative;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  a {
-    font-size: 14px;
-    padding-top: 10px;
-    color: white;
-  }
-  img {
-    height: 15px;
-    width: 15px;
-    padding-top: 10px;
-  }
-}
-main {
-  display: flex;
-  flex-direction: column;
-  margin-left: 200px;
-  margin-right: 200px;
-
-  h3 {
-    font-size: 24px;
-    margin-top: 100px;
-    padding: 10px;
-    color: purple;
-  }
-  h4 {
-    color: purple;
-    font-size: 24px;
-    margin-left: 20px;
-  }
-  p {
-    font-size: 18px;
-    margin: 20px;
-    padding-bottom: 30px;
-  }
-  #left {
-    height: 250px;
-    max-width: fit-content;
-    float: left;
-    border: 2px solid $mainColor;
-    margin: 10px;
-  }
-  #right {
-    height: 400px;
-    max-width: fit-content;
-    margin-top: -20px;
-    float: right;
-    border: 2px solid $mainColor;
-  }
-  .image-container {
-    display: flex;
-    flex-direction: row;
-    padding-right: 50px;
-  }
-  .text-container {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
 .slideshow-container {
   display: flex;
   justify-content: center;
@@ -166,6 +70,11 @@ main {
     right: -8px;
     transition: all 0.2s ease-in-out;
   }
+  .btnScrollTo1,
+  .btnScrollTo2 {
+    font-weight: bold;
+    font-size: 15px;
+  }
   .btnScrollTo1:hover img {
     cursor: pointer;
     transform: rotate(90deg);
@@ -175,20 +84,66 @@ main {
     transform: rotate(90deg);
   }
 }
+main {
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px;
+  margin-right: 200px;
 
+  h3 {
+    font-size: 24px;
+    margin-top: 100px;
+    padding: 10px;
+    color: purple;
+    margin-left: 10px;
+  }
+  h4 {
+    color: purple;
+    font-size: 24px;
+    margin-left: 20px;
+  }
+  p {
+    font-size: 18px;
+    margin: 20px;
+    padding-bottom: 30px;
+  }
+  #left {
+    height: 250px;
+    max-width: fit-content;
+    float: left;
+    border: 2px solid $mainColor;
+    margin: 10px;
+  }
+  #right {
+    height: 400px;
+    max-width: fit-content;
+    margin-top: -20px;
+    float: right;
+    border: 2px solid $mainColor;
+  }
+  .image-container {
+    display: flex;
+    flex-direction: row;
+    padding-right: 50px;
+  }
+  .text-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .dot {
   cursor: pointer;
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: #bbb;
+  background-color: white;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
 }
 .active,
 .dot:hover {
-  background-color: #717171;
+  background-color: black;
 }
 .return-wrapper {
   width: 100vw;
@@ -209,12 +164,11 @@ main {
     height: 100%;
     border-width: 0.8vmin 0.8vmin 0 0;
     border-style: solid;
-    border-color: #fafafa;
+    border-color: black;
     transition: 0.2s ease;
     display: block;
     transform-origin: 100% 0;
   }
-
   &:after {
     content: "";
     float: left;
@@ -224,7 +178,7 @@ main {
     height: 100%;
     border-width: 0 0.8vmin 0 0;
     border-style: solid;
-    border-color: #fafafa;
+    border-color: black;
     transform-origin: 100% 0;
     transition: 0.2s ease;
   }
@@ -240,7 +194,6 @@ main {
   }
 }
 
-//------------------------------------------------------
 $size: 50px;
 $items: 3;
 $transition: 0.5s;
@@ -305,7 +258,7 @@ nav {
   .l#{$i} {
     $i: $i - 1;
     $-i: $items - $i;
-    $pct: $i/$items * 100%;
+    $pct: calc($i/$items * 100%);
     $color: mix($color-inner, $color-outer, $pct);
 
     top: $i * $size;
@@ -313,10 +266,9 @@ nav {
     right: $i * $size;
     bottom: $i * $size;
     background: $color;
-    transition-delay: $i * $transition/$items;
 
     .open & {
-      transition-delay: $i * $transition/$items;
+      transition-delay: calc($i * $transition/$items);
       transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, $start-rot);
       opacity: 1;
 
@@ -364,7 +316,27 @@ nav {
     transition-duration: 0s;
   }
 }
-
+footer {
+  background-color: black;
+  font-family: monospace;
+  height: 60px;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  a {
+    font-size: 14px;
+    padding-top: 10px;
+    color: white;
+  }
+  img {
+    height: 15px;
+    width: 15px;
+    padding-top: 10px;
+  }
+}
 @media only screen and (max-width: 1250px) {
   main {
     margin: auto;
@@ -372,6 +344,10 @@ nav {
   .tab {
     top: auto;
     left: 10px;
+    img {
+      top: 4px;
+      left: 15px;
+    }
   }
   .infoLinks {
     position: absolute;
@@ -390,7 +366,7 @@ nav {
     }
   }
   #left {
-    width: 340px;
+    width: 350px;
   }
   #right {
     margin-right: 20px;

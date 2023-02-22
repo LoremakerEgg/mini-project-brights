@@ -41,7 +41,7 @@ function currentSlide(n) {
 
 dots.forEach((dot, index) => {
   dot.addEventListener("click", () => {
-    currentSlide(index + 1);
+    currentSlide(index);
   });
 });
 

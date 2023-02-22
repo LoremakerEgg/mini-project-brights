@@ -3,7 +3,7 @@ $sizing: 400px;
 $sizingS: 300px;
 $border: 2px solid black;
 body {
-  background-color: aliceblue;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .demo-main {
   display: flex;
@@ -84,6 +84,7 @@ body {
     width: 50vw;
     margin-left: 25vw;
     margin-bottom: $paddingBetween;
+    margin-top: 30px;
   }
 }
 
@@ -114,6 +115,11 @@ body {
   }
   .demo-info {
     width: $sizingS;
+  }
+  #navicon {
+    img {
+      scale: 0.6;
+    }
   }
 }
 
@@ -149,4 +155,29 @@ body {
 }
 .show {
   display: block !important;
+}
+header {
+  h1 {
+    width: auto;
+    position: relative;
+    color: white;
+    animation-name: team;
+    animation-duration: 3s;
+  }
+}
+
+@keyframes team {
+  0% {
+    left: 1000px;
+    top: 0px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+footer {
+  .code-btn {
+    padding-top: 10px;
+  }
 }

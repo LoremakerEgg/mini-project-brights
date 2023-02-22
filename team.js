@@ -1,38 +1,32 @@
 import "./style-global.scss";
 import "./style-team.scss";
 
-let slides = document.getElementsByClassName("slides");
-let dots = document.getElementsByClassName("dot");
 const navButton = document.getElementById("nav-menu");
 const navBar = document.querySelector(".navbar");
 
+let slides = document.getElementsByClassName("slides");
+let dots = document.querySelectorAll(".dot");
+
 function showSlides(n) {
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
   for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
+    dots[i].classList.remove("active");
   }
-  for (let i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
+  slideIndex = (n + slides.length) % slides.length;
+  slides[slideIndex].style.display = "block";
+  dots[slideIndex].className += " active";
 }
+//initialization of page
+let slideIndex = 0;
+showSlides(slideIndex);
+
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
 // Show Next/previous (+/-1) slide
 function plusSlides(n) {
   showSlides((slideIndex += n));
 }
 
-//initialization of page
-let slideIndex = 1;
-showSlides(slideIndex);
-
-const prev = document.querySelector(".prev");
-const next = document.querySelector(".next");
 prev.addEventListener("click", () => {
   plusSlides(-1);
 });
@@ -45,15 +39,12 @@ function currentSlide(n) {
   showSlides((slideIndex = n));
 }
 
-dots[0].addEventListener("click", () => {
-  currentSlide(1);
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    currentSlide(index + 1);
+  });
 });
-dots[1].addEventListener("click", () => {
-  currentSlide(2);
-});
-dots[2].addEventListener("click", () => {
-  currentSlide(3);
-});
+
 navButton.addEventListener("click", () => {
   navBar.classList.toggle("show");
 });

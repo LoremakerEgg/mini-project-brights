@@ -50,7 +50,7 @@ async function getPokemon(id) {
     pokemonTypeArray.push(element.type["name"]);
   });
 
-  firstEntry.innerHTML = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png"/><p>${pokemonName}</p>`;
+  firstEntry.innerHTML = `<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" alt="Image of a random Pokemon"/><p>${pokemonName}</p>`;
   //shows the images and name of the pokemon, with the first letter being capitalized in CSS
   if (pokemonTypeArray.length > 1) {
     randomPokemonType.innerText = `THIS POKEMON HAS ${
